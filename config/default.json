@@ -1,0 +1,10 @@
+{
+  "SERVER": {
+    "HOST": "0.0.0.0",
+    "PORT": 3000
+  },
+  "CORS": {
+    "origin": true,
+    "credentials": true
+  }
+}

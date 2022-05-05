@@ -2,11 +2,13 @@
   "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended", 
+    "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "project": ["tsconfig.json", "tsconfig.server.json"],
+    "env": { "node": true },
     "ecmaVersion": 2018,
     "sourceType": "module",
     "ecmaFeatures": {
@@ -21,6 +23,7 @@
   },
   "ignorePatterns": ["node_modules/", ".next/*"],
   "rules": {
+    "typscript-eslint/no-explicit-any": "off",
     "react/react-in-jsx-scope": 0,
     "react/prefer-stateless-function": 0,
     "react/jsx-filename-extension": 0,
@@ -29,6 +32,12 @@
     "no-unused-vars": "off",
     "no-undef": "off",
     "/no-useless-escape": "off",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-inferrable-types": "off",
     "prettier/prettier": [
       "error",
       {
@@ -42,15 +51,5 @@
   },
   "globals": {
     "React": "writable"
-  },
-  "overrides": [
-    {
-      "files": ["*.js", "*.jsx"],
-      "rules": {
-        "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/no-unused-vars": "off",
-        "@typescript-eslint/no-empty-interface": "off"
-      }
-    }
-  ]
+  }
 }
