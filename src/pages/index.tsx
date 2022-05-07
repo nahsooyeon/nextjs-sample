@@ -2,8 +2,11 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import fetch from 'isomorphic-unfetch';
+import { userInfo } from 'os';
 
-const Home: NextPage = () => {
+const Home = ({ user }) => {
+  const username = user && user.login;
   return (
     <div className={styles.container}>
       <Head>
@@ -14,7 +17,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href="https://nextjs.org">{username}!</a>
         </h1>
 
         <p className={styles.description}>
@@ -69,4 +72,17 @@ const Home: NextPage = () => {
   );
 };
 
+export const getServerSideProps = async () => {
+  try {
+    const res = await fetch('https://api.github.com/users/nahsooyeon');
+    if (res.status === 200) {
+      const user = await res.json();
+      console.log(user);
+      return { props: { user } };
+    }
+  } catch (error) {
+    console.log(error);
+    return { prop: {} };
+  }
+};
 export default Home;
