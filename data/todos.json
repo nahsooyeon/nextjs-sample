@@ -1,0 +1,8 @@
+[
+  { "id": 0, "text": "코딩하기", "checked": false },
+  { "id": 1, "text": "요가하기", "checked": false },
+  { "id": 2, "text": "기차표 예매하기", "checked": false },
+  { "id": 3, "text": "분리수거하기", "checked": false },
+  { "id": 4, "text": "설거지하기", "checked": false },
+  { "id": 5, "text": "마트 가서 장보기", "checked": false }
+]
